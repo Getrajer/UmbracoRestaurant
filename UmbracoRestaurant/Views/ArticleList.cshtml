@@ -3,7 +3,7 @@
     @using Umbraco.Web.PublishedModels
 
     @{
-    Layout = "Master.cshtml";
+    Layout = null;
     }
 
     @* the fun starts here *@
@@ -12,7 +12,7 @@
     <!-- Page Header -->
     <header class="masthead" style="background-image: url('img/home-bg.jpg')">
         <div class="overlay"></div>
-        <div class="container">
+        <div class="container">@RenderBody()
             <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto">
                     <div class="site-heading">
@@ -26,3 +26,4 @@
 
     <!-- Main Content -->
    @Html.Partial("~/Views/Partials/latestArticles.cshtml")
+
