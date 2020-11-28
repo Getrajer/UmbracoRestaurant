@@ -391,6 +391,10 @@
     <Content Include="Views\Partials\menuProducts.cshtml" />
     <Content Include="Views\MenuItem.cshtml" />
     <Content Include="Views\MenuItemList.cshtml" />
+    <Content Include="Views\About.cshtml" />
+    <Content Include="Views\Search.cshtml" />
+    <Content Include="Views\Contact.cshtml" />
+    <Content Include="Views\Partials\pageHeader.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

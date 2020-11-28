@@ -1,28 +1,16 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Web.PublishedModels.Home>
 
-    @using Umbraco.Web.PublishedModels
+@using Umbraco.Web.PublishedModels
 
-    @{
-        Layout = "Master.cshtml";
-    }
+@{
+    Layout = "Master.cshtml";
+}
 
-    @* the fun starts here *@
+@* the fun starts here *@
 
 
-    <!-- Page Header -->
-    <header class="masthead" style="background-image: url('img/home-bg.jpg')">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-md-10 mx-auto">
-                    <div class="site-heading">
-                        <h1>@Model.Name  </h1>
-                        <span class="subheading">A Blog Theme by Start Bootstrap</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+<!-- Page Header -->
+@Html.Partial("~/Views/Partials/pageHeader.cshtml")
 
-    <!-- Main Content -->
-   @Html.Partial("~/Views/Partials/menuProducts.cshtml")
+<!-- Main Content -->
+@Html.Partial("~/Views/Partials/menuProducts.cshtml")
