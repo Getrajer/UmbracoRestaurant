@@ -17,8 +17,8 @@ using Umbraco.Core.Models.PublishedContent;
 using Umbraco.Web;
 using Umbraco.ModelsBuilder.Embedded;
 
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "37983c9a7604d2d2")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.5")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "f17dbd57971030e8")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 namespace Umbraco.Web.PublishedModels
 {
@@ -104,26 +104,26 @@ namespace Umbraco.Web.PublishedModels
 		public string MetaName => global::Umbraco.Web.PublishedModels.SEocontrols.GetMetaName(this);
 	}
 
-	/// <summary>MenuItem</summary>
-	[PublishedModel("mainCourse")]
-	public partial class MainCourse : PublishedContentModel, IContentControlls, IFoodMenuItemControls, IHeaderControls, IMainImageControls, ISEocontrols, IVisabilityControlls
+	/// <summary>Menu Item</summary>
+	[PublishedModel("menuItem")]
+	public partial class MenuItem : PublishedContentModel, IContentControlls, IFoodMenuItemControls, IHeaderControls, IMainImageControls, ISEocontrols, IVisabilityControlls
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		public new const string ModelTypeAlias = "mainCourse";
+		public new const string ModelTypeAlias = "menuItem";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
 		public new static IPublishedContentType GetModelContentType()
 			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<MainCourse, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<MenuItem, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 #pragma warning restore 0109
 
 		// ctor
-		public MainCourse(IPublishedContent content)
+		public MenuItem(IPublishedContent content)
 			: base(content)
 		{ }
 
@@ -221,26 +221,26 @@ namespace Umbraco.Web.PublishedModels
 		public bool UmbracoNaviHide => global::Umbraco.Web.PublishedModels.VisabilityControlls.GetUmbracoNaviHide(this);
 	}
 
-	/// <summary>MenuItemList</summary>
-	[PublishedModel("foodMenuItemList")]
-	public partial class FoodMenuItemList : PublishedContentModel, IContentControlls, IHeaderControls, IMainImageControls, ISEocontrols, IVisabilityControlls
+	/// <summary>Menu Items List</summary>
+	[PublishedModel("menuItemsList")]
+	public partial class MenuItemsList : PublishedContentModel, IContentControlls, IHeaderControls, IMainImageControls, ISEocontrols, IVisabilityControlls
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		public new const string ModelTypeAlias = "foodMenuItemList";
+		public new const string ModelTypeAlias = "menuItemsList";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
 		public new static IPublishedContentType GetModelContentType()
 			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<FoodMenuItemList, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<MenuItemsList, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 #pragma warning restore 0109
 
 		// ctor
-		public FoodMenuItemList(IPublishedContent content)
+		public MenuItemsList(IPublishedContent content)
 			: base(content)
 		{ }
 

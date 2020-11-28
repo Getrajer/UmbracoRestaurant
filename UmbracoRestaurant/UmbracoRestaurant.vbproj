@@ -386,10 +386,11 @@
     <Content Include="Views\Partials\BlockList\Default.cshtml" />
     <Content Include="Views\Master.cshtml" />
     <Content Include="Views\Home.cshtml" />
-    <Content Include="Views\BasicContentControlls.cshtml" />
     <Content Include="Views\Partials\navigation.cshtml" />
     <Content Include="Views\Partials\footer.cshtml" />
-    <Content Include="Views\Partials\latestArticles.cshtml" />
+    <Content Include="Views\Partials\menuProducts.cshtml" />
+    <Content Include="Views\MenuItem.cshtml" />
+    <Content Include="Views\MenuItemList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
