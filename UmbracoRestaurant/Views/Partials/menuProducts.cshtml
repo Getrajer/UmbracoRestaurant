@@ -1,74 +1,95 @@
 ﻿@inherits UmbracoViewPage
 
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-            <div class="post-preview">
-                <a href="post.html">
-                    <h2 class="post-title">
-                        Man must explore, and this is exploration at its greatest
-                    </h2>
-                    <h3 class="post-subtitle">
-                        Problems look mighty small from 150 miles up
-                    </h3>
-                </a>
-                <p class="post-meta">
-                    Posted by
-                    <a href="#">Start Bootstrap</a>
-                    on September 24, 2019
-                </p>
+
+@{
+    var menuItemsList = Model.Root().Descendants<MenuItemsList>().FirstOrDefault();
+    var menuItems = menuItemsList.Descendants<MenuItem>().Where(x => x.IsVisible()).OrderByDescending(y => y.ItemCreation);
+
+    var isMenuListPage = menuItemsList.Id == Model.Id;
+    var fallbackPageSize = isMenuListPage ? 10 : 3;
+
+    var pageNumber = 1;
+    var pageSize = fallbackPageSize;
+
+    var pageOfMenuItems = menuItems.Skip((pageNumber - 1) * pageSize).Take(pageSize);
+    var totalItemCount = menuItems.Count();
+    var pageCount = totalItemCount > 0 ? Math.Ceiling((double)totalItemCount / pageSize) : 1;
+
+}
+
+@if (menuItems != null && menuItems.Any())
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                @foreach (var menuItem in pageOfMenuItems)
+                {
+
+                    var image = menuItem.ProductImage;
+                    string imageUrl = "";
+                    if (image != null)
+                    {
+                        imageUrl = image.GetCropUrl(1903, 532);
+                    }
+
+                    <div class="post-preview">
+                        <a href="@menuItem.Url">
+                            <div>
+                                <img src="@imageUrl" alt="img" style="width: 100%"/>
+                            </div>
+                            <h2 class="post-title">
+                                @(!string.IsNullOrWhiteSpace(menuItem.Title) ? menuItem.Title : menuItem.Name)
+                            </h2>
+                        </a>
+                    </div>
+                    <hr>
+                }
+
+
+                
+                <!-- Pager -->
+            <div id="paging" class="clearfix">
+                @if (isMenuListPage)
+                {
+                    <div class="paging-block">
+                        @if (pageNumber > 1)
+                        {
+                            <a class="btn btn-primary float-left" href="@($"{menuItemsList.Url}?page={pageNumber - 1}&size{pageSize}")">Previous</a>
+                        }
+                        else
+                        {
+                            @Html.Raw("&nbsp;")
+                        }
+                    </div>
+
+                    <div class="paging-block">
+                        <span>Page @pageNumber of @pageCount </span>
+                    </div>
+
+                    <div class="paging-block">
+                        @if (pageNumber < pageCount)
+                        {
+                            <a class="btn btn-primary float-right" href="@($"{menuItemsList.Url}?page={pageNumber + 1}&size{pageSize}")">Next</a>
+                        }
+                        else
+                        {
+                            @Html.Raw("&nbsp;")
+                        }
+                    </div>
+                }
+                else
+                {
+                    <a class="btn btn-primary float-right" href="@(menuItemsList.Url)">
+                        View all
+                    </a>
+                }
+
+
             </div>
-            <hr>
-            <div class="post-preview">
-                <a href="post.html">
-                    <h2 class="post-title">
-                        I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.
-                    </h2>
-                </a>
-                <p class="post-meta">
-                    Posted by
-                    <a href="#">Start Bootstrap</a>
-                    on September 18, 2019
-                </p>
-            </div>
-            <hr>
-            <div class="post-preview">
-                <a href="post.html">
-                    <h2 class="post-title">
-                        Science has not yet mastered prophecy
-                    </h2>
-                    <h3 class="post-subtitle">
-                        We predict too much for the next year and yet far too little for the next ten.
-                    </h3>
-                </a>
-                <p class="post-meta">
-                    Posted by
-                    <a href="#">Start Bootstrap</a>
-                    on August 24, 2019
-                </p>
-            </div>
-            <hr>
-            <div class="post-preview">
-                <a href="post.html">
-                    <h2 class="post-title">
-                        Failure is not an option
-                    </h2>
-                    <h3 class="post-subtitle">
-                        Many say exploration is part of our destiny, but it’s actually our duty to future generations.
-                    </h3>
-                </a>
-                <p class="post-meta">
-                    Posted by
-                    <a href="#">Start Bootstrap</a>
-                    on July 8, 2019
-                </p>
-            </div>
-            <hr>
-            <!-- Pager -->
-            <div class="clearfix">
-                <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
             </div>
         </div>
     </div>
-</div>
+}
+
+
 

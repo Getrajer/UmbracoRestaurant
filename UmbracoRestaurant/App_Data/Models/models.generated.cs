@@ -17,7 +17,7 @@ using Umbraco.Core.Models.PublishedContent;
 using Umbraco.Web;
 using Umbraco.ModelsBuilder.Embedded;
 
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "430c488abe0f8822")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "a3c01fce43b7db1a")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 namespace Umbraco.Web.PublishedModels
@@ -128,6 +128,13 @@ namespace Umbraco.Web.PublishedModels
 		{ }
 
 		// properties
+
+		///<summary>
+		/// Item Creation
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
+		[ImplementPropertyType("itemCreation")]
+		public global::System.DateTime ItemCreation => this.Value<global::System.DateTime>("itemCreation");
 
 		///<summary>
 		/// Main Content
